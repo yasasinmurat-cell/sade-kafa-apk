@@ -1,0 +1,12 @@
+name: APK Yapici
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Buildozer ile APK Uret
+        uses: ArtemSerebriakov/buildozer-action@v1
+        with:
+          buildozer_version: master
+          command: buildozer android debug

@@ -12,13 +12,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Buildozer Kurulumu ve Bagimliliklar
+      - name: Sistem Bagimliliklari
         run: |
           sudo apt update
-          sudo apt install -y git zip unzip autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+          sudo apt install -y git zip unzip autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev openjdk-17-jdk
           pip install --user --upgrade buildozer cython==0.29.33
 
-      - name: APK Uret
+      - name: APK Uret (Otomatik Onayli)
         run: |
           export PATH=$PATH:$HOME/.local/bin
-          buildozer android debug
+          yes | buildozer android debug

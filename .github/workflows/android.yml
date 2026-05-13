@@ -1,16 +1,14 @@
 name: APK Yapici
-on: 
-  workflow_dispatch:
-  push:
-    branches: [ main ]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - name: Buildozer ile APK Uret
-        uses: ArtemSerebriakov/buildozer-action@v1
+        uses: Akuhov/buildozer-action@v1
         with:
           buildozer_version: stable
           command: buildozer android debug

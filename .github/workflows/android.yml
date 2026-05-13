@@ -21,4 +21,6 @@ jobs:
       - name: APK Uret
         run: |
           export PATH=$PATH:$HOME/.local/bin
+          # Eski hatalı dosyaları temizleyip taze bir başlangıç yapıyoruz
+          buildozer android clean
           yes | buildozer android debug
